@@ -1,0 +1,38 @@
+{
+  "sourceId": "ad",
+  "sourceType": "ldap",
+  "sourceName": "Active Directory",
+  "description": "Import des objets computer depuis AD avec enrichissement date",
+  "connection": {
+    "url": "${AD_URL}",
+    "bindDN": "${AD_BIND_DN}",
+    "bindCredentials": "${AD_PASSWORD}"
+  },
+  "search": {
+    "base": "${AD_BASE_DN}",
+    "filter": "(objectClass=computer)",
+    "scope": "sub",
+    "attributes": [
+      "cn",
+      "name",
+      "dNSHostName",
+      "operatingSystem",
+      "operatingSystemVersion",
+      "lastLogonTimestamp",
+      "whenCreated",
+      "description"
+    ]
+  },
+  "fieldMapping": {
+    "CN": { "type": "string", "source": "cn" },
+    "DistinguishedName": { "type": "string", "source": "dn" },
+    "whenCreated": { "type": "date", "source": "whenCreated" },
+    "LastLogonDate": { "type": "date", "source": "lastLogonTimestamp" },
+    "OperatingSystem": { "type": "string", "source": "operatingSystem" },
+    "OperatingSystemVersion": { "type": "string", "source": "operatingSystemVersion" },
+    "DNSHostName": { "type": "string", "source": "dNSHostName" },
+    "Description": { "type": "string", "source": "description" }
+  },
+  "uniqueKeys": ["CN"],
+  "destinationCollection": "ad_data"
+}

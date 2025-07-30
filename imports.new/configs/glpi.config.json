@@ -1,0 +1,28 @@
+{
+  "sourceId": "glpi",
+  "sourceType": "api",
+  "sourceName": "GLPI ITSM",
+  "description": "Import GLPI via API REST avec enrichissement des disques et antivirus",
+
+  "request": {
+    "url": "http://localhost:8080/apirest.php/Computer",
+    "method": "GET",
+    "headers": {
+      "App-Token": "A9mrO1vXxTSsdeZUd96bfcssF4LlCfRzqm9LtrQe",
+      "Authorization": "user_token 09qsYnSWUFNwPNxLM6vvZrUBdSgKTnSQ1F30cLFf"
+    }
+  },
+
+  "fieldMapping": {
+    "Nom": { "type": "string", "source": "name" },
+    "Lieu": { "type": "number", "source": "locations_id" },
+    "VolumesPourcentageLibre": { "type": "number", "source": "free_disk_percent" },
+    "AntivirusNom": { "type": "string", "source": "av_name" },
+    "AntivirusActif": { "type": "boolean", "source": "av_active" },
+    "AntivirusVersion": { "type": "string", "source": "av_version" },
+    "Utilisateur": { "type": "number", "source": "users_id" }
+  },
+
+  "uniqueKeys": ["Nom"],
+  "destinationCollection": "glpi_computers"
+}

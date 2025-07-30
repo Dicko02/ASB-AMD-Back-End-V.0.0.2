@@ -1,14 +1,16 @@
+require('dotenv').config();
 const fs = require('fs');
 const csv = require('csv-parser');
 const kasperskyData = require('../models/kaspersky.model');
-const path = require('path');
 
 //Fonction d'importation
 function importKaspersky() {
+  const KASPERSKY_CSV_PATH = process.env.KASPERSKY_CSV_PATH;
   return new Promise((resolve, reject) => {
     const allKasperskyData = [];
     const nomSet = new Set(); //Set local pour éviter doublons pendant l'import
-    const kasperskyCSVRessourcePath = path.join('\\\\WIN-K0J5FFPIPLB', 'KSC-Share', 'allKasperskyData.csv');
+    //const kasperskyCSVRessourcePath = path.join('\\\\WIN-K0J5FFPIPLB', 'KSC-Share', 'allKasperskyData.csv');
+    const kasperskyCSVRessourcePath = KASPERSKY_CSV_PATH;
 
     let stream;
     try {

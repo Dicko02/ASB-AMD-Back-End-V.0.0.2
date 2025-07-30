@@ -1,0 +1,24 @@
+{
+  "sourceId": "kaspersky",
+  "type": "csv",
+  "sourceName": "Kaspersky Antivirus",
+  "description": "Import de données depuis le fichier partagé Kaspersky CSV",
+  "connection": {
+    "filePath": "${KASPERSKY_CSV_PATH}",
+    "delimiter": ","
+  },
+  "fieldMapping": {
+    "Nom": { "type": "string", "required": true, "isKey": true },
+    "L'Agent d'administration est installé": { "type": "string" },
+    "L'Agent d'administration est en cours d'exécution": { "type": "string" },
+    "Protection en temps réel": { "type": "string" },
+    "Dernière mise à jour des bases antivirus": { "type": "date" },
+    "État": { "type": "string" },
+    "Description de l'état": { "type": "string" },
+    "Groupe parent": { "type": "string" },
+    "État de chiffrement": { "type": "string" },
+    "Dernière analyse complète": { "type": "date" }
+  },
+  "uniqueKeys": ["Nom"],
+  "destinationCollection": "kaspersky_data"
+}

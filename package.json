@@ -1,6 +1,7 @@
 {
   "name": "asb-amd",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
@@ -10,19 +11,22 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.11.0",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "cross-fetch": "^4.1.0",
     "csv-parser": "^3.2.0",
-    "dotenv": "^17.2.0",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "fetch-cookie": "^3.1.0",
     "fs": "^0.0.1-security",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
+    "ldapjs": "^3.0.7",
     "ldapts": "^8.0.6",
-    "mongoose": "^8.16.0",
+    "mongoose": "^8.17.0",
+    "mysql2": "^3.14.3",
     "node-cron": "^4.2.1",
     "node-fetch": "^2.7.0",
     "nodemon": "^3.1.10",
